@@ -1,0 +1,10 @@
+\begin{tikzpicture}[scale = 1]
+	\foreach \a/\Col in {0.25/blue, 0.5/red, 1/orange, 2/purple, 4/black}
+	{
+		\draw[\Col] plot[domain = 0:4, variable = \x, samples = 90] ({\x}, {4 * (\a * \x^\a) / (\a + \a * \x^\a)});
+	}
+	\draw (0, 0) rectangle (4, 4);
+	\draw [dotted] (1, 0) node[below]{$1$} -- (1, 4);
+	\draw [dotted] (0, 2) node[left](p5){$0.5$} -- (4, 2);
+	\node [left of= p5,rotate = 90]{$x_1(b_1/b_2)$};
+\end{tikzpicture}
