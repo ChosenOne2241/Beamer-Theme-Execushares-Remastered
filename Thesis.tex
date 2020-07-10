@@ -1,6 +1,6 @@
 \documentclass[12pt, twoside]{Misc/Template}
-% Feel free to feed the options (font/paper/margin sizes etc.) since ``Template`` here is merely a superclass of ``report``.
-% When the ``twoside`` option is enabled, it is **normal** that the outer page margins will be twice as large as the inner margins.
+% Feel free to feed the options (font/paper/margin sizes etc.) since `Template` here is merely a superclass of `report`.
+% When the `twoside` option is enabled, it is **normal** that the outer page margins will be twice as large as the inner margins.
 
 % All packages below are used here only to generate examples, which are **optional**.
 \usepackage{tikz}
@@ -11,7 +11,7 @@
 % Load AMS math/theorem/font packages and the predefined thereom styles based on AMS theorem.
 % If it is unnecessary, just comment out the line above.
 
-\setlength{\headheight}{15pt} % To get rid of the headheight-related warning message caused by ``fancyhdr`` package.
+\setlength{\headheight}{15pt} % To get rid of the headheight-related warning message caused by `fancyhdr` package.
 
 \begin{document}
 	% The front matter.
@@ -40,7 +40,7 @@
 	\pagestyle{plain}
 	\bibliographystyle{abbrv}
 	\bibliography{Back_Matter/Bibliography}
-	\bookmarksetupnext{level = part}
+	\bookmarksetupnext{level = part} % `part` is -1.
 	\begin{appendices}
 		\include{Back_Matter/Appendix_A}
 		\include{Back_Matter/Appendix_B}
