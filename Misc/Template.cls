@@ -1,16 +1,16 @@
 % Author: Yongzhen Ren
-% Version: v20200709
+% Version: v20200711
 % Description: It is a LaTeX thesis template complying with Harvard GSAS requirements.
 % See [the link](https://guides.library.harvard.edu/overleaf/phd) for more information.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Misc/Template}[v20200709 The University of Manitoba Thesis Class]
+\ProvidesClass{Misc/Template}[v20200711 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
 \RequirePackage{cite} % Handle the space after `\cite{}` automatically.
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
-\RequirePackage[pdftex, breaklinks = true]{hyperref} % Allow links to break over lines.
+\RequirePackage[pdftex, breaklinks = true, pagebackref = true]{hyperref} % Allow links to break over lines; activate back references inside bibliography.
 \RequirePackage{fancyhdr} % Headers and footers.
 \RequirePackage[toc]{appendix}
 \RequirePackage{bookmark}
@@ -41,7 +41,7 @@
 	pdftitle = \@title,
 	pdfsubject = \@subject,
 	pdfkeywords = \@keywords,
-	pdfborder = 0 0 0, % Make all links invisible, so the document looks good when printed.
+	pdfborder = 0 0 0 % Make all links invisible, so the document looks good when printed.
 }
 
 \newcommand{\generatetitlepage}
