@@ -1,10 +1,5 @@
-% Author: Yongzhen Ren
-% Version: v20200711
-% Description: It is a LaTeX thesis template complying with Harvard GSAS requirements.
-% See [the link](https://guides.library.harvard.edu/overleaf/phd) for more information.
-
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Misc/Template}[v20200711 The University of Manitoba Thesis Class]
+\ProvidesClass{Misc/UMThesis_Class}[v20200713 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -15,9 +10,10 @@
 \RequirePackage[toc]{appendix}
 \RequirePackage{bookmark}
 \RequirePackage{tocbibind} % Enable the table of contents, list of tables, list of figures and bibliography to show in the bookmark.
+\RequirePackage{etoolbox} % Use conditional statements below.
 
 % Defining internal commands starting with "@" is to prevent users accidently from changing the macro names from outside.
-\newcommand{\documenttype}[1]{\newcommand\@documenttype{#1}}
+\newcommand{\documentID}[1]{\newcommand\@documentID{#1}}
 \newcommand{\degreename}[1]{\newcommand\@degreename{#1}}
 \newcommand{\department}[1]{\newcommand\@department{#1}}
 \newcommand{\submissionsubject}[1]{\newcommand\@submissionsubject{#1}}
@@ -30,6 +26,82 @@
 \newcommand{\keywords}[1]{\newcommand\@keywords{#1}}
 
 \input{Front_Matter/Fields}
+
+% Start exception handling.
+\ifdefempty{\@documentID}
+{
+	\ClassError{UMThesis_Class}{\noexpand\documentID cannot be blank}{Check \noexpand\documentID in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@degreename}
+{
+	\ClassError{UMThesis_Class}{\noexpand\degreename cannot be blank}{Check \noexpand\degreename in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@department}
+{
+	\ClassError{UMThesis_Class}{\noexpand\department cannot be blank}{Check \noexpand\department in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@submissionsubject}
+{
+	\ClassError{UMThesis_Class}{\noexpand\submissionsubject cannot be blank}{Check \noexpand\submissionsubject in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@university}
+{
+	\ClassError{UMThesis_Class}{\noexpand\university cannot be blank}{Check \noexpand\university in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@location}
+{
+	\ClassError{UMThesis_Class}{\noexpand\location cannot be blank}{Check \noexpand\location in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@graduationmonth}
+{
+	\ClassError{UMThesis_Class}{\noexpand\graduationmonth cannot be blank}{Check \noexpand\graduationmonth in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@graduationyear}
+{
+	\ClassError{UMThesis_Class}{\noexpand\graduationyear cannot be blank}{Check \noexpand\graduationyear in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifdefempty{\@advisor}
+{
+	\ClassError{UMThesis_Class}{\noexpand\advisor cannot be blank}{Check \noexpand\advisor in ./Front_Matter/Fields.tex}
+	\stop
+}
+{}
+
+\ifnumequal{\@documentID}{0}
+{\newcommand{\@document}{thesis}} % Define `\@document` based on the value of `\@documentID`.
+{
+	\ifnumequal{\@documentID}{1}
+	{\newcommand{\@document}{dissertation}}
+	{
+		\ClassError{UMThesis_Class}{\noexpand\documentID is supposed to be either `0` (thesis) or `1` (dissertation)}{Check \noexpand\documentID in ./Front_Matter/Fields.tex}
+		\stop
+	}
+}
+% End exception handling.
 
 \hypersetup
 {
@@ -51,7 +123,7 @@
 			{\LARGE \bfseries \@title}\\[2em]
 			presented by\\[2em]
 			\@author\\[2em]
-			A \@documenttype\ submitted to\\
+			A \@document\ submitted to\\
 			\@submissionsubject\ of\\
 			\@university\\
 			in partial fulfillment of the requirements\\
@@ -74,11 +146,11 @@
 	\noindent
 	\begin{minipage}[t]{0.45\textwidth}
 		\begin{flushleft}
-			Thesis Advisor\\
+			{\expandafter \MakeUppercase \@document} Advisor\\
 			{\bfseries \@advisor}
 		\end{flushleft}
 	\end{minipage}
-	\hfill
+	\hspace{\fill}
 	\begin{minipage}[t]{0.45\textwidth}
 		\begin{flushright}
 			Author\\
