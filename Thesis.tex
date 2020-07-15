@@ -1,6 +1,6 @@
 % Author: Yongzhen Ren
-% Version: v20200713
-% Description: It is a LaTeX thesis template complying with Harvard GSAS requirements.
+% Version: v20200714
+% Description: It is a LaTeX thesis template for the University of Manitoba, complying with Harvard GSAS requirements.
 % See [here](https://guides.library.harvard.edu/overleaf/phd/) for more information.
 
 \documentclass[12pt, twoside]{Misc/UMThesis_Class}
@@ -16,11 +16,9 @@
 % Load AMS math/theorem/font packages and the predefined thereom styles based on AMS theorem.
 % If it is unnecessary, just comment out the line above.
 
-\setlength{\headheight}{15pt} % To get rid of the headheight-related warning message caused by `fancyhdr` package.
-
 \begin{document}
 	% The front matter.
-	\pagenumbering{roman} % Pages for the front matter is roman.
+	\frontmatterpagestyle
 	\generatetitlepage
 	\include{Front_Matter/Abstract}
 	\tableofcontents
@@ -30,21 +28,14 @@
 	\include{Front_Matter/Dedication}
 
 	% The main matter.
-	\pagestyle{fancy}
-	\cfoot{}
-	\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
-	\fancyhead[LE, RO]{\thepage}
-	\fancyhead[LO, RE]{\textit{\chaptername\ \thechapter: \leftmark}}
-	% 4 lines above create the fancy style header for two-side documents.
-	\pagenumbering{arabic} % Pages for the main/back matter is arabic.
+	\mainmatterpagestyle
 	\include{Main_Matter/1-Examples}
 	\include{Main_Matter/2-Text}
 
 	% The back matter.
-	\pagestyle{plain}
-	\bibliographystyle{abbrv}
+	\backmatterpagestyle
 	\bibliography{Back_Matter/Bibliography}
-	\bookmarksetupnext{level = part} % `part` is -1.
+	\bookmarksetupnext{level = part} % `part` is `-1`.
 	\begin{appendices}
 		\include{Back_Matter/Appendix_A}
 		\include{Back_Matter/Appendix_B}

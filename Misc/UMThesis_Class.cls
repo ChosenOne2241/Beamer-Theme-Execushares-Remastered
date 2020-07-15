@@ -1,9 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Misc/UMThesis_Class}[v20200713 The University of Manitoba Thesis Class]
+\ProvidesClass{Misc/UMThesis_Class}[v20200714 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
 \RequirePackage{cite} % Handle the space after `\cite{}` automatically.
+\RequirePackage{microtype} % Micro-adjust font spacing.
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
 \RequirePackage[pdftex, breaklinks = true, pagebackref = true]{hyperref} % Allow links to break over lines; activate back references inside bibliography.
 \RequirePackage{fancyhdr} % Headers and footers.
@@ -16,9 +17,6 @@
 \newcommand{\documentID}[1]{\newcommand\@documentID{#1}}
 \newcommand{\degreename}[1]{\newcommand\@degreename{#1}}
 \newcommand{\department}[1]{\newcommand\@department{#1}}
-\newcommand{\submissionsubject}[1]{\newcommand\@submissionsubject{#1}}
-\newcommand{\university}[1]{\newcommand\@university{#1}}
-\newcommand{\location}[1]{\newcommand\@location{#1}}
 \newcommand{\graduationmonth}[1]{\newcommand\@graduationmonth{#1}}
 \newcommand{\graduationyear}[1]{\newcommand\@graduationyear{#1}}
 \newcommand{\advisor}[1]{\newcommand\@advisor{#1}}
@@ -45,27 +43,6 @@
 \ifdefempty{\@department}
 {
 	\ClassError{UMThesis_Class}{\noexpand\department cannot be blank}{Check \noexpand\department in ./Front_Matter/Fields.tex}
-	\stop
-}
-{}
-
-\ifdefempty{\@submissionsubject}
-{
-	\ClassError{UMThesis_Class}{\noexpand\submissionsubject cannot be blank}{Check \noexpand\submissionsubject in ./Front_Matter/Fields.tex}
-	\stop
-}
-{}
-
-\ifdefempty{\@university}
-{
-	\ClassError{UMThesis_Class}{\noexpand\university cannot be blank}{Check \noexpand\university in ./Front_Matter/Fields.tex}
-	\stop
-}
-{}
-
-\ifdefempty{\@location}
-{
-	\ClassError{UMThesis_Class}{\noexpand\location cannot be blank}{Check \noexpand\location in ./Front_Matter/Fields.tex}
 	\stop
 }
 {}
@@ -124,14 +101,14 @@
 			presented by\\[2em]
 			\@author\\[2em]
 			A \@document\ submitted to\\
-			\@submissionsubject\ of\\
-			\@university\\
+			The Faculty of Graduate Studies of\\
+			The University of Manitoba\\
 			in partial fulfillment of the requirements\\
 			for the degree of\\[2em]
 			\@degreename\\[2em]
 			\@department\\
-			\@university\\
-			\@location\\
+			The University of Manitoba\\
+			Winnipeg, Manitoba, Canada\\
 			\@graduationmonth\ \@graduationyear\\[6em]
 			\copyright\ Copyright \@graduationyear\ by \@author\\
 		\end{center}
@@ -141,7 +118,7 @@
 \renewenvironment{abstract}
 {
 	\phantomsection
-	% In order to make the bookmark display correctly with `hyperref`, a phantom section has to be added.
+	% In order to display the bookmark correctly with `hyperref`, a phantom section has to be added.
 	\addcontentsline{toc}{chapter}{Abstract}
 	\noindent
 	\begin{minipage}[t]{0.45\textwidth}
@@ -166,6 +143,7 @@
 		{\Large \bfseries \abstractname}
 	\end{center}
 }
+{}
 
 \newenvironment{acknowledgements}
 {
@@ -175,6 +153,7 @@
 		{\Large \bfseries Acknowledgements}
 	\end{center}
 }
+{}
 
 \newenvironment{dedication}
 {
@@ -187,6 +166,29 @@
 {
 		\end{flushright}
 	\end{quote}
+}
+
+\newcommand{\frontmatterpagestyle}
+{
+	\pagenumbering{roman} % Pages for the front matter are roman.
+}
+
+\newcommand{\mainmatterpagestyle}
+{
+	\pagestyle{fancy}
+	\setlength{\headheight}{15pt} % Set `\headheight` to `15pt` to get rid of the headheight-related warning message caused by `fancyhdr` package, when the default font size is `12pt`.
+	\cfoot{}
+	\renewcommand{\chaptermark}[1]{\markboth{##1}{##1}} % Nested commands.
+	\fancyhead[LE, RO]{\thepage}
+	\fancyhead[LO, RE]{\textit{\chaptername\ \thechapter: \leftmark}}
+	% 4 lines above create the fancy style header for two-side documents.
+	\pagenumbering{arabic} % Pages for the main/back matter are arabic.
+}
+
+\newcommand{\backmatterpagestyle}
+{
+	\pagestyle{plain}
+	\bibliographystyle{abbrv}
 }
 
 \endinput % LaTeX will stop loading anything after this line.
