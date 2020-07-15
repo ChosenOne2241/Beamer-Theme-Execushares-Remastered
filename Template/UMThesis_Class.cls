@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Misc/UMThesis_Class}[v20200714 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200715 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -12,6 +12,24 @@
 \RequirePackage{bookmark}
 \RequirePackage{tocbibind} % Enable the table of contents, list of tables, list of figures and bibliography to show in the bookmark.
 \RequirePackage{etoolbox} % Use conditional statements below.
+\RequirePackage{amsthm, amsmath, amssymb}
+
+% Define the theorem style (the `amsthm` package is needed).
+% Read more (here)[https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles].
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{claim}{Claim}
 
 % Defining internal commands starting with "@" is to prevent users accidently from changing the macro names from outside.
 \newcommand{\documentID}[1]{\newcommand\@documentID{#1}}
