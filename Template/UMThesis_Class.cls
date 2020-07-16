@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200715 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200716 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -11,10 +11,12 @@
 \RequirePackage[toc]{appendix}
 \RequirePackage{bookmark}
 \RequirePackage{tocbibind} % Enable the table of contents, list of tables, list of figures and bibliography to show in the bookmark.
+\RequirePackage[format = plain, labelfont = bf]{caption} % Make caption labels boldface.
 \RequirePackage{etoolbox} % Use conditional statements below.
-\RequirePackage{amsthm, amsmath, amssymb}
+\RequirePackage{mathtools} % `mathtools` is an add-on of `amsmath` and loads `amsmath` automatically.
+\RequirePackage{amsthm, amssymb} % If the `amsthm` package is used with a non-AMS document class and with the `amsmath` package, `amsthm` must be loaded after `amsmath`, not before.
 
-% Define the theorem style (the `amsthm` package is needed).
+% Define the theorem style using `amsthm`.
 % Read more (here)[https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles].
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
