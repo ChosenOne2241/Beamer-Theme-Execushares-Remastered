@@ -1,12 +1,12 @@
 % Author: Yongzhen Ren
-% Version: v20200716
+% Version: v20200720
 % Description: It is a LaTeX thesis template for the University of Manitoba, complying with Harvard GSAS requirements.
-% See [here](https://guides.library.harvard.edu/overleaf/phd/) for more information.
-% Download the newest version from [GitHub](https://github.com/ChosenOne2241/UMThesis).
+% For more information, see [here](https://guides.library.harvard.edu/overleaf/phd/).
+% Download the newest version from [GitHub](https://github.com/ChosenOne2241/UMThesis/).
 
 \documentclass[12pt, twoside]{Template/UMThesis_Class}
 % Feel free to feed the options (font/paper/margin sizes etc.) since `Template/UMThesis_Class` here is merely a superclass of `report`.
-% When the `twoside` option is enabled, it is **normal** that the outer page margins will be twice as large as the inner margins.
+% When the `twoside` option is enabled, it is **normal** that the outer page margins will be twice as large as the inner margins. Don't panic!
 
 % All packages below are used here only to generate demos, which are **optional**.
 \usepackage{tikz}
@@ -33,6 +33,7 @@
 	\backmatterpagestyle
 	\bibliography{Back_Matter/Bibliography}
 	\bookmarksetupnext{level = part} % `part` is `-1`.
+	\appendix
 	\begin{appendices}
 		\include{Back_Matter/Appendix_A}
 		\include{Back_Matter/Appendix_B}

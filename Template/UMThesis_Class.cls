@@ -1,20 +1,24 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200716 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200720 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
 \RequirePackage{cite} % Handle the space after `\cite{}` automatically.
 \RequirePackage{microtype} % Micro-adjust font spacing.
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
-\RequirePackage[pdftex, breaklinks = true, pagebackref = true]{hyperref} % Allow links to break over lines; activate back references inside bibliography.
 \RequirePackage{fancyhdr} % Headers and footers.
-\RequirePackage[toc]{appendix}
-\RequirePackage{bookmark}
+\RequirePackage[Lenny]{fncychap} % Fancy heading styles. Available options are `Sonny`, `Lenny`, `Glenn`, `Conny`, `Rejne`, `Bjarne` and `Bjornstrup`.
 \RequirePackage{tocbibind} % Enable the table of contents, list of tables, list of figures and bibliography to show in the bookmark.
 \RequirePackage[format = plain, labelfont = bf]{caption} % Make caption labels boldface.
-\RequirePackage{etoolbox} % Use conditional statements below.
+\RequirePackage{etoolbox} % To use conditional statements below.
 \RequirePackage{mathtools} % `mathtools` is an add-on of `amsmath` and loads `amsmath` automatically.
 \RequirePackage{amsthm, amssymb} % If the `amsthm` package is used with a non-AMS document class and with the `amsmath` package, `amsthm` must be loaded after `amsmath`, not before.
+\RequirePackage[pdftex, breaklinks = true, pagebackref = true]{hyperref}
+% Allow links to break over lines; activate back references inside bibliography.
+% With few exceptions, `hyperref` should **always** load last.
+% For more information, see [here](https://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before/).
+\RequirePackage[toc, page]{appendix} % Change grouping for bookmarks of Appendix section.
+\RequirePackage{bookmark} % A new bookmark organization for `hyperref`.
 
 % Define the theorem style using `amsthm`.
 % Read more (here)[https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles].
@@ -33,7 +37,7 @@
 \newtheorem{remark}{Remark}
 \newtheorem{claim}{Claim}
 
-% Defining internal commands starting with "@" is to prevent users accidently from changing the macro names from outside.
+% Defining internal commands starting with `@` is to prevent users accidently from changing the macro names from outside.
 \newcommand{\documentID}[1]{\newcommand\@documentID{#1}}
 \newcommand{\degreename}[1]{\newcommand\@degreename{#1}}
 \newcommand{\department}[1]{\newcommand\@department{#1}}
@@ -115,6 +119,9 @@
 
 \newcommand{\generatetitlepage}
 {
+	\phantomsection
+	% To display the bookmark correctly with `hyperref`, a phantom section has to be added.
+	\addcontentsline{toc}{chapter}{Title Page}
 	\begin{titlepage}
 		\begin{center}
 			{\LARGE \bfseries \@title}\\[2em]
@@ -138,7 +145,6 @@
 \renewenvironment{abstract}
 {
 	\phantomsection
-	% In order to display the bookmark correctly with `hyperref`, a phantom section has to be added.
 	\addcontentsline{toc}{chapter}{Abstract}
 	\noindent
 	\begin{minipage}[t]{0.45\textwidth}
@@ -198,7 +204,7 @@
 	\pagestyle{fancy}
 	\setlength{\headheight}{15pt} % Set `\headheight` to `15pt` to get rid of the headheight-related warning message caused by `fancyhdr` package, when the default font size is `12pt`.
 	\cfoot{}
-	\renewcommand{\chaptermark}[1]{\markboth{##1}{##1}} % Nested commands.
+	\renewcommand{\chaptermark}[1]{\markboth{##1}{##1}} % [Warning] Nested commands.
 	\fancyhead[LE, RO]{\thepage}
 	\fancyhead[LO, RE]{\textit{\chaptername\ \thechapter: \leftmark}}
 	% 4 lines above create the fancy style header for two-side documents.
