@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200721 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200722 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -15,7 +15,7 @@
 \RequirePackage{fancyhdr} % Fancy style headers.
 \RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles.
 \RequirePackage{tocbibind} % Enable the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
-\RequirePackage[format = plain, labelfont = bf]{caption} % Make caption labels boldface.
+\RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
 \RequirePackage{etoolbox} % Enable the conditional statements used below.
 \RequirePackage{mathtools} % An add-on of `amsmath` and loads `amsmath` automatically.
 \RequirePackage{amsthm, amssymb}
