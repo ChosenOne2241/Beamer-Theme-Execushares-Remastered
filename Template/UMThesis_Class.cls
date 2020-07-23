@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200722 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200723 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -14,6 +14,7 @@
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
 \RequirePackage{fancyhdr} % Fancy style headers.
 \RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles.
+\RequirePackage{epigraph} % Enable epigraphs.
 \RequirePackage{tocbibind} % Enable the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
 \RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
 \RequirePackage{etoolbox} % Enable the conditional statements used below.
@@ -34,7 +35,7 @@
 	\colorbox{gray!30}{\rule{0pt}{40pt}\parbox[b]{\textwidth}{\hspace*{\fill}}}
 	\kern -\py \raise 20pt
 	\rlap{\color{gray}\CNoV\thechapter}\\
-}
+} 
 
 % Define the theorem style using `amsthm`.
 % See here for more information: https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles
@@ -142,7 +143,7 @@
 	\begin{titlepage}
 		\begin{center}
 			{\LARGE \bfseries \@title}\\[2em]
-			presented by\\[2em]
+			by\\[2em]
 			\@author\\[2em]
 			A \@document\ submitted to\\
 			The Faculty of Graduate Studies of\\
@@ -154,7 +155,7 @@
 			The University of Manitoba\\
 			Winnipeg, Manitoba, Canada\\
 			\@graduationmonth\ \@graduationyear\\[6em]
-			\copyright\ Copyright \@graduationyear\ by \@author\\
+			Copyright \copyright\ \@graduationyear\ \@author\\
 		\end{center}
 	\end{titlepage}
 }
@@ -192,9 +193,7 @@
 {
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Acknowledgements}
-	\begin{center}
-		{\Large \bfseries Acknowledgements}
-	\end{center}
+	\chapter*{Acknowledgements}
 }
 {}
 
