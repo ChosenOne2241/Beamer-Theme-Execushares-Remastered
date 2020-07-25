@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200723 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200725 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -34,7 +34,7 @@
 	\fboxsep = 0pt
 	\colorbox{gray!30}{\rule{0pt}{40pt}\parbox[b]{\textwidth}{\hspace*{\fill}}}
 	\kern -\py \raise 20pt
-	\rlap{\color{gray}\CNoV\thechapter}\\
+	\rlap{\color{gray}\CNoV\thechapter} \\
 } 
 
 % Define the theorem style using `amsthm`.
@@ -142,20 +142,26 @@
 	\addcontentsline{toc}{chapter}{Title Page}
 	\begin{titlepage}
 		\begin{center}
-			{\LARGE \bfseries \@title}\\[2em]
-			by\\[2em]
-			\@author\\[2em]
-			A \@document\ submitted to\\
-			The Faculty of Graduate Studies of\\
-			The University of Manitoba\\
-			in partial fulfillment of the requirements\\
-			for the degree of\\[2em]
-			\@degreename\\[2em]
-			\@department\\
-			The University of Manitoba\\
-			Winnipeg, Manitoba, Canada\\
-			\@graduationmonth\ \@graduationyear\\[6em]
-			Copyright \copyright\ \@graduationyear\ \@author\\
+			{\LARGE \bfseries \@title} \\
+			[2em]
+			by \\
+			[2em]
+			\@author \\
+			[2em]
+			A \@document\ submitted to \\
+			The Faculty of Graduate Studies of \\
+			The University of Manitoba \\
+			in partial fulfillment of the requirements \\
+			for the degree of \\
+			[2em]
+			\@degreename \\
+			[2em]
+			\@department \\
+			The University of Manitoba \\
+			Winnipeg, Manitoba, Canada \\
+			\@graduationmonth\ \@graduationyear \\
+			[6em]
+			Copyright \copyright\ \@graduationyear\ \@author \\
 		\end{center}
 	\end{titlepage}
 }
@@ -167,14 +173,14 @@
 	\noindent
 	\begin{minipage}[t]{0.45\textwidth}
 		\begin{flushleft}
-			{\expandafter \MakeUppercase \@document} Advisor\\
+			{\expandafter \MakeUppercase \@document} Advisor \\
 			{\bfseries \@advisor}
 		\end{flushleft}
 	\end{minipage}
 	\hspace{\fill}
 	\begin{minipage}[t]{0.45\textwidth}
 		\begin{flushright}
-			Author\\
+			Author \\
 			{\bfseries \@author}
 		\end{flushright}
 	\end{minipage}
@@ -223,7 +229,7 @@
 	\renewcommand{\chaptermark}[1]{\markboth{##1}{##1}} % Nested commands.
 	\fancyhead[LE, RO]{\thepage}
 	\fancyhead[LO, RE]{\textit{\chaptername\ \thechapter: \leftmark}}
-	% 4 lines above create the fancy style header for two-side documents.
+	% 3 lines above create the fancy style header for two-side documents.
 	\pagenumbering{arabic} % Pages for the main/back matter are arabic.
 }
 
