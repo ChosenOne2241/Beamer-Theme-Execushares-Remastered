@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200725 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200726 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -142,25 +142,19 @@
 	\addcontentsline{toc}{chapter}{Title Page}
 	\begin{titlepage}
 		\begin{center}
-			{\LARGE \bfseries \@title} \\
-			[2em]
-			by \\
-			[2em]
-			\@author \\
-			[2em]
+			{\LARGE \bfseries \@title} \\[2em]
+			by \\[2em]
+			\@author \\[2em]
 			A \@document\ submitted to \\
 			The Faculty of Graduate Studies of \\
 			The University of Manitoba \\
 			in partial fulfillment of the requirements \\
-			for the degree of \\
-			[2em]
-			\@degreename \\
-			[2em]
+			for the degree of \\[2em]
+			\@degreename \\[2em]
 			\@department \\
 			The University of Manitoba \\
 			Winnipeg, Manitoba, Canada \\
-			\@graduationmonth\ \@graduationyear \\
-			[6em]
+			\@graduationmonth\ \@graduationyear \\[6em]
 			Copyright \copyright\ \@graduationyear\ \@author \\
 		\end{center}
 	\end{titlepage}
