@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200726 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200727 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -35,7 +35,7 @@
 	\colorbox{gray!30}{\rule{0pt}{40pt}\parbox[b]{\textwidth}{\hspace*{\fill}}}
 	\kern -\py \raise 20pt
 	\rlap{\color{gray}\CNoV\thechapter} \\
-} 
+}
 
 % Define the theorem style using `amsthm`.
 % See here for more information: https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles
@@ -212,6 +212,7 @@
 
 \newcommand{\frontmatterpagestyle}
 {
+	\pagestyle{plain}
 	\pagenumbering{roman} % Pages for the front matter are roman.
 }
 
