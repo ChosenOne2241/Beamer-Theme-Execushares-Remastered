@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200727 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200729 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -17,13 +17,14 @@
 \RequirePackage{epigraph} % Enable epigraphs.
 \RequirePackage{tocbibind} % Enable the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
 \RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
-\RequirePackage{etoolbox} % Enable the conditional statements used below.
-\RequirePackage{mathtools} % An add-on of `amsmath` and loads `amsmath` automatically.
+\usepackage[framemethod = tikz]{mdframed}
+% Allow defining custom boxed/framed environments (`notice` and `highlight`). It renew `theorem` environment so it has to be loaded before `amsthm`; it loads the `kvoptions`, `xparse`, `etoolbox`, `color` and `tikz` automatically.
+\RequirePackage{mathtools} % An add-on of `amsmath` which loads `amsmath` automatically.
 \RequirePackage{amsthm, amssymb}
 % If the `amsthm` package is used with a non-AMS document class and with the `amsmath` package, `amsthm` must be loaded after `amsmath`, not before.
 \RequirePackage[pdftex, breaklinks = true, pagebackref = true]{hyperref}
 % Allow links to break over lines and ctivate back references inside the bibliography.
-% With few exceptions, `hyperref` should **always** load last.
+% Besides few exceptions, `hyperref` should **always** load last.
 \RequirePackage[toc, page]{appendix} % Change grouping for bookmarks of the appendix.
 \RequirePackage{bookmark} % A new bookmark organization for `hyperref`.
 
@@ -48,11 +49,58 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
-\newtheorem{problem}{Problem}
+\newthoerem{problem}{Problem}
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 \newtheorem{claim}{Claim}
+
+% Set up the `notice` environment.
+\mdfdefinestyle{notice}
+{
+	topline = false,
+	bottomline = false,
+	leftline = false,
+	rightline = false,
+	singleextra =
+	{
+		\fill [black] (P-|O) circle [radius = 0.5em];
+		% `P`: upper right corner; `(O)`: lower left corner.
+		% `(P-|O)` or `(O|-P)`: upper left corner.
+		\node at (P-|O) {\color{white}\scriptsize\bfseries i};
+		\draw [very thick] (P-|O) ++ (0, -1em) -- (O);
+	}
+}
+
+\newenvironment{notice}[1][Notice:] % Set the default notice title as "Notice:"
+{
+	\medskip
+	\begin{mdframed}[style = notice]
+		\noindent{\textbf{#1}}
+}
+{
+	\end{mdframed}
+}
+
+\mdfdefinestyle{highlight}
+{
+	innertopmargin = \baselineskip,
+	roundcorner = 5pt,
+	singleextra =
+	{
+		\draw (P-|O) node [xshift = 1em, anchor = west, fill = gray!20, draw, rounded corners = 5pt] {\highlighttitle};
+	}
+}
+
+\newenvironment{highlight}[1][]
+{
+	\medskip
+	\newcommand{\highlighttitle}{#1}
+	\begin{mdframed}[style = highlight]
+}
+{
+	\end{mdframed}
+}
 
 % Defining internal commands starting with `@` is to prevent users accidently from changing the macro names outside the class file.
 \newcommand{\documentID}[1]{\newcommand\@documentID{#1}}
