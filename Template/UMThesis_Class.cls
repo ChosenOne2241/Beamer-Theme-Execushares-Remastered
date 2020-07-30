@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200729 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200729.2 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -18,7 +18,7 @@
 \RequirePackage{tocbibind} % Enable the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
 \RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
 \usepackage[framemethod = tikz]{mdframed}
-% Allow defining custom boxed/framed environments (`notice` and `highlight`). It renew `theorem` environment so it has to be loaded before `amsthm`; it loads the `kvoptions`, `xparse`, `etoolbox`, `color` and `tikz` automatically.
+% Allow defining custom boxed/framed environments (`notice` and `highlight`). `mdframed` renews the `theorem` environment so it has to be loaded before `amsthm`; it loads `kvoptions`, `xparse`, `etoolbox`, `color` and `tikz` automatically.
 \RequirePackage{mathtools} % An add-on of `amsmath` which loads `amsmath` automatically.
 \RequirePackage{amsthm, amssymb}
 % If the `amsthm` package is used with a non-AMS document class and with the `amsmath` package, `amsthm` must be loaded after `amsmath`, not before.
@@ -49,7 +49,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
-\newthoerem{problem}{Problem}
+\newtheorem{problem}{Problem}
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
@@ -72,7 +72,7 @@
 	}
 }
 
-\newenvironment{notice}[1][Notice:] % Set the default notice title as "Notice:"
+\newenvironment{notice}[1][Notice:] % Set the default notice title as "Notice:".
 {
 	\medskip
 	\begin{mdframed}[style = notice]
@@ -82,6 +82,7 @@
 	\end{mdframed}
 }
 
+% Set up the `highlight` environment.
 \mdfdefinestyle{highlight}
 {
 	innertopmargin = \baselineskip,
