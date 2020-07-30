@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200729.2 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200729.3 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -49,7 +49,6 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
-\newtheorem{problem}{Problem}
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
@@ -89,7 +88,7 @@
 	roundcorner = 5pt,
 	singleextra =
 	{
-		\draw (P-|O) node [xshift = 1em, anchor = west, fill = gray!20, draw, rounded corners = 5pt] {\highlighttitle};
+		\draw (P-|O) node [xshift = 1em, anchor = west, fill = gray!20, draw, rounded corners = 5pt] {\bfseries \highlighttitle};
 	}
 }
 
