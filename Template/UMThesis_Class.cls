@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200729.3 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200802 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -235,7 +235,14 @@
 		{\Large \bfseries \abstractname}
 	\end{center}
 }
-{}
+{
+	\ifdefempty{\@keywords}
+	{}
+	{
+		\\[2em]
+		\textbf{Keywords:} \@keywords .
+	}
+}
 
 \newenvironment{acknowledgements}
 {
