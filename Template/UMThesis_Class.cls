@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200808 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200812 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -61,12 +61,22 @@
 	bottomline = false,
 	leftline = false,
 	rightline = false,
-	singleextra =
+	singleextra = % A non-split frame.
 	{
 		\fill [black] (P-|O) circle [radius = 0.5em];
 		% `P`: upper right corner; `(O)`: lower left corner.
 		% `(P-|O)` or `(O|-P)`: upper left corner.
 		\node at (P-|O) {\color{white}\scriptsize\bfseries i};
+	},
+	firstextra = % If it is a split frame, then draw the icon only for the first part.
+	{
+		\fill [black] (P-|O) circle [radius = 0.5em];
+		% `P`: upper right corner; `(O)`: lower left corner.
+		% `(P-|O)` or `(O|-P)`: upper left corner.
+		\node at (P-|O) {\color{white}\scriptsize\bfseries i};
+	},
+	extra = % Always draw a left line.
+	{
 		\draw [very thick] (P-|O) ++ (0, -1em) -- (O);
 	}
 }
@@ -84,9 +94,13 @@
 % Set up the `highlight` environment.
 \mdfdefinestyle{highlight}
 {
-	innertopmargin = \baselineskip,
 	roundcorner = 5pt,
-	singleextra =
+	innertopmargin = \baselineskip,
+	singleextra = % A non-split frame.
+	{
+		\draw (P-|O) node [xshift = 1em, anchor = west, fill = gray!20, draw, rounded corners = 5pt] {\bfseries \highlighttitle};
+	},
+	firstextra = % If it is a split frame, then draw the title box only for the first part.
 	{
 		\draw (P-|O) node [xshift = 1em, anchor = west, fill = gray!20, draw, rounded corners = 5pt] {\bfseries \highlighttitle};
 	}
