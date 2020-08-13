@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200812 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200813 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -24,7 +24,7 @@
 % If the `amsthm` package is used with a non-AMS document class and with the `amsmath` package, `amsthm` must be loaded after `amsmath`, not before.
 \RequirePackage[pdftex, breaklinks = true, pagebackref = true]{hyperref}
 % Allow links to break over lines and activate back references inside the bibliography.
-% Besides few exceptions, `hyperref` should **always** load last.
+% With few exceptions, `hyperref` should **always** load last.
 \RequirePackage[toc, page]{appendix} % Change grouping for bookmarks of the appendix.
 \RequirePackage{bookmark} % A new bookmark organization for `hyperref`.
 
