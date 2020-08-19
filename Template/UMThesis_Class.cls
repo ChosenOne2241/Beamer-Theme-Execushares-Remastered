@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200813 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200819 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -14,7 +14,7 @@
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
 \RequirePackage{fancyhdr} % Fancy style headers.
 \RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles.
-\RequirePackage{epigraph} % Enable epigraphs.
+\RequirePackage{epigraph} % It enables epigraphs and loads `minipage` automatically. 
 \RequirePackage{tocbibind} % Enable the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
 \RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
 \usepackage[framemethod = tikz]{mdframed}
@@ -114,6 +114,26 @@
 }
 {
 	\end{mdframed}
+}
+
+\renewcommand{\epigraph}[2] % Make epigraphs single-spaced.
+{
+	\vspace{\beforeepigraphskip}
+	\vbox
+	{
+		\epigraphsize
+		\begin{\epigraphflush}
+			\begin{singlespace}
+				\begin{minipage}{\epigraphwidth}
+					\@epitext{#1}\\
+					\@episource{#2}
+				\end{minipage}
+			\end{singlespace}
+		\end{\epigraphflush}
+	}
+	\nointerlineskip
+	\vspace*{\afterepigraphskip}
+	\ifepigraphnoindent\@afterheading\fi
 }
 
 % Defining internal commands starting with `@` is to prevent users accidently from changing the macro names outside the class file.
