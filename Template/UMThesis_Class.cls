@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200819 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20200909 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -53,6 +53,7 @@
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 \newtheorem{claim}{Claim}
+\newtheorem{observation}{Observation}
 
 % Set up the `notice` environment.
 \mdfdefinestyle{notice}
@@ -125,7 +126,7 @@
 		\begin{\epigraphflush}
 			\begin{singlespace}
 				\begin{minipage}{\epigraphwidth}
-					\@epitext{#1}\\
+					\@epitext{#1} \\
 					\@episource{#2}
 				\end{minipage}
 			\end{singlespace}
