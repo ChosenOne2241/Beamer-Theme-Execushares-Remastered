@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20200909 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20201005 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -39,21 +39,26 @@
 }
 
 % Define the theorem style using `amsthm`.
-% See here for more information: https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles
+% See here for more information: 
+% https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles and
+% https://www.overleaf.com/learn/latex/theorems_and_proofs
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
+\newtheorem{conjecture}{Conjecture}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
+\newtheorem{axiom}{Axiom}
+\newtheorem{postulate}{Postulate}
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
-\newtheorem{claim}{Claim}
 \newtheorem{observation}{Observation}
+\newtheorem{claim}{Claim}
 
 % Set up the `notice` environment.
 \mdfdefinestyle{notice}
