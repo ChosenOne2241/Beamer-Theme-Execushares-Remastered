@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20201005 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20201008 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -52,8 +52,6 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
-\newtheorem{axiom}{Axiom}
-\newtheorem{postulate}{Postulate}
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
