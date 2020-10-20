@@ -1,11 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UMThesis_Class}[v20201013 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UMThesis_Class}[v20201020 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
 % Debugging use only.
 % \RequirePackage{refcheck} % Show useless labels, unlabelled equations, unused bibliography references.
-% \RequirePackage[l2tabu, orthodox]{nag} % Warn users about common mistakes and outdated packages.
+% \RequirePackage[l2tabu, orthodox]{nag} % Warn users of common mistakes and outdated packages.
 
 \RequirePackage{cite} % Handle the space after `\cite{}` automatically.
 \RequirePackage{microtype}
@@ -14,7 +14,7 @@
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
 \RequirePackage{fancyhdr} % Fancy style headers.
 \RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles.
-\RequirePackage{epigraph} % It enables epigraphs and loads `minipage` automatically. 
+\RequirePackage{epigraph} % It enables epigraphs and loads `minipage` automatically.
 \RequirePackage{tocbibind} % Enable the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
 \RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
 \usepackage[framemethod = tikz]{mdframed}
@@ -39,7 +39,7 @@
 }
 
 % Define the theorem style using `amsthm`.
-% See here for more information: 
+% See two links below for more information:
 % https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles and
 % https://www.overleaf.com/learn/latex/theorems_and_proofs
 \theoremstyle{plain}
@@ -210,8 +210,8 @@
 \hypersetup
 {
 	bookmarksnumbered = true, % Add index numbers for chapters/sections.
-	colorlinks = true, % `false`: boxed links; `true`: colored links.
-	citecolor = blue, % Change the color of citation links into `blue` instead of default `green`.
+	colorlinks = true, % `false`: boxed links; `true`: coloured links.
+	citecolor = blue, % Change the colour of citation links into `blue` instead of default `green`.
 	pdfnewwindow = true, % Links are opened in a new window.
 	pdfauthor = \@author,
 	pdfcreator = \@author,
@@ -306,7 +306,7 @@
 \newcommand{\frontmatterpagestyle}
 {
 	\pagestyle{plain}
-	\pagenumbering{roman} % Pages for the front matter are roman.
+	\pagenumbering{roman} % Page numbers for the front matter are roman.
 }
 
 \newcommand{\mainmatterpagestyle}
@@ -318,7 +318,7 @@
 	\fancyhead[LE, RO]{\thepage}
 	\fancyhead[LO, RE]{\textit{\chaptername\ \thechapter: \leftmark}}
 	% 3 lines above create the fancy style header for two-side documents.
-	\pagenumbering{arabic} % Pages for the main/back matter are arabic.
+	\pagenumbering{arabic} % Page numbers for the main/back matter are arabic.
 }
 
 \newcommand{\backmatterpagestyle}
