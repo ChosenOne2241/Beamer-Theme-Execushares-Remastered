@@ -1,3 +1,3 @@
-# UMThesis
+# UofMThesis
 
-A LaTeX thesis template for the University of Manitoba, complying with Harvard GSAS requirements. See [here](https://guides.library.harvard.edu/overleaf/phd/) for more information.
+It is a LaTeX thesis template for the University of Manitoba (U of M), complying with [Harvard GSAS requirements](https://guides.library.harvard.edu/overleaf/phd/).
