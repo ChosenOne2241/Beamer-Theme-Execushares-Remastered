@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[v20201028 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UofMThesis_Class}[v20201029 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
