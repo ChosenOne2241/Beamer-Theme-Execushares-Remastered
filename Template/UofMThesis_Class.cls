@@ -314,7 +314,7 @@
 \newcommand{\mainmatterpagestyle}
 {
 	\pagestyle{fancy}
-	\setlength{\headheight}{15pt} % Sets `\headheight` to `15pt` to get rid of the headheight-related warning message caused by `fancyhdr` package, when the default font size is `12pt`.
+	\setlength{\headheight}{15pt} % Sets `\headheight` to 15pt to get rid of the headheight-related warning message caused by `fancyhdr`, when the default font size is 12pt.
 	\cfoot{}
 	\renewcommand{\chaptermark}[1]{\markboth{##1}{##1}} % Nested commands.
 	\fancyhead[LE, RO]{\thepage}
