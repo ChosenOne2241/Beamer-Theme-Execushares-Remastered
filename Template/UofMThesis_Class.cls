@@ -91,8 +91,8 @@
 	\medskip
 	\begin{mdframed}[style = notice]
 		\noindent{\textbf{#1}}
-	}
-	{
+}
+{
 	\end{mdframed}
 }
 
@@ -116,8 +116,8 @@
 	\medskip
 	\newcommand{\highlighttitle}{#1}
 	\begin{mdframed}[style = highlight]
-	}
-	{
+}
+{
 	\end{mdframed}
 }
 
@@ -298,8 +298,8 @@
 	\begin{quote}
 		\begin{flushright}
 			\em
-		}
-		{
+}
+{
 		\end{flushright}
 	\end{quote}
 }
