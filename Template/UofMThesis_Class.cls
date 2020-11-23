@@ -1,15 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[v20201121 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UofMThesis_Class}[v20201122 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
-% Debugging use only.
+% For debugging use only.
 % \RequirePackage{refcheck} % Shows useless labels, unlabelled equations, unused bibliography references.
 % \RequirePackage[l2tabu, orthodox]{nag} % Warns users of common mistakes and outdated packages.
 
 \RequirePackage{cite} % Handles the space after `\cite{}` automatically.
 \RequirePackage{microtype}
-% Micro-adjust font spacing.
+% Micro-adjusts font spacing.
 % `microtype` doesn't work with `latex` and please use `pdflatex`, `lualatex` or `xelatex` instead if one compiles `Thesis.tex` using command lines.
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
 \RequirePackage{fancyhdr} % Fancy style headers.
@@ -19,13 +19,14 @@
 \RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
 \usepackage[framemethod = tikz]{mdframed}
 % Defines custom boxed/framed environments (`notice` and `highlight`). `mdframed` renews the `theorem` environment so it has to be loaded before `amsthm`; it loads `kvoptions`, `xparse`, `etoolbox`, `color` and `tikz` automatically.
-\RequirePackage{mathtools} % An add-on of `amsmath` which loads `amsmath` automatically.
+\RequirePackage{mathtools} % An add-on of `amsmath` loading `amsmath` automatically.
 \RequirePackage{amsthm, amssymb}
 % If the `amsthm` is used with a non-AMS document class and with the `amsmath`, `amsthm` must be loaded after `amsmath`, not before.
 \RequirePackage[pdftex, breaklinks = true, pagebackref = true, hyperfootnotes = true]{hyperref}
 % Generates hypertexts marks.
 % `breaklinks = true` allows links to break over lines.
 % `pagebackref = true` activates back references inside the bibliography.
+% `hyperfootnotes = true` makes the footnote marks into hyperlinks to the footnote text.
 % With few exceptions, `hyperref` should **always** load last.
 \RequirePackage{footnotebackref} % Enables back referencing from footnotes.
 \RequirePackage[toc, page]{appendix} % Changes grouping for bookmarks of the appendix.
@@ -153,7 +154,7 @@
 \newcommand{\subject}[1]{\newcommand\@subject{#1}}
 \newcommand{\keywords}[1]{\newcommand\@keywords{#1}}
 
-\input{Front_Matter/Fields} % Loads personal details.
+\input{Front_Matter/Fields} % Loads fields used in the title page.
 
 % Exception handling starts.
 \ifdefempty{\@documentID}
@@ -213,8 +214,8 @@
 \hypersetup
 {
 	bookmarksnumbered = true, % Adds index numbers for chapters/sections.
-	colorlinks = true, % `false`: boxed links; `true`: coloured links.
-	citecolor = blue, % Changes the colour of citation links into `blue` instead of default `green`.
+	colorlinks = true, % `false` for boxed links; `true` for coloured links.
+	citecolor = blue, % Changes the colour of citation links into `blue` instead of default glaring `green`.
 	pdfnewwindow = true, % Links are opened in a new window.
 	pdfauthor = \@author,
 	pdfcreator = \@author,
