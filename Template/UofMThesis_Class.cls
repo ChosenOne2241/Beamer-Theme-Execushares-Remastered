@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[v20201214 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UofMThesis_Class}[v20201220 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -235,7 +235,7 @@
 	pdfborder = 0 0 0 % Makes all links invisible, so the document looks decent when printed.
 }
 
-\newcommand{\generatetitlepage}
+\newcommand{\maketitlepage}
 {
 	\phantomsection
 	% Adds a phantom section to display the bookmark correctly with `hyperref`.
