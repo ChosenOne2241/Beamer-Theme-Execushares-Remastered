@@ -1,18 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[v20201220 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UofMThesis_Class}[v20201230 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
 \RequirePackage{cite} % Handles the space after `\cite{}` automatically.
 \RequirePackage{microtype}
 % Micro-adjusts font spacing.
-% `microtype` doesn't work with `latex` and please use `pdflatex`, `lualatex` or `xelatex` instead if one compiles `Thesis.tex` using command lines.
+% `microtype` does not work with `latex` and please use `pdflatex`, `lualatex` or `xelatex` instead if one compiles `Thesis.tex` using command lines.
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace} % Double-spaced for text but not for mathematical formulae.
 \RequirePackage{fancyhdr} % Fancy style headers.
 \RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles.
 \RequirePackage{epigraph} % Enables epigraphs and loads `minipage` automatically.
 \RequirePackage{tocbibind} % Enables the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
-\RequirePackage[format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels.
+\RequirePackage[hypcap = true, format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels; `hypcap` is applied to make links to tables and figures point to the right location when `hyperref` is in use.
 \usepackage[framemethod = tikz]{mdframed}
 % Defines custom boxed/framed environments (`notice` and `highlight`). `mdframed` renews the `theorem` environment so it has to be loaded before `amsthm`; it loads `kvoptions`, `xparse`, `etoolbox`, `color` and `tikz` automatically.
 \RequirePackage{mathtools} % An add-on of `amsmath` loading `amsmath` automatically.
