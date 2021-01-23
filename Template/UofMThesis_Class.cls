@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[v20201230 The University of Manitoba Thesis Class]
+\ProvidesClass{Template/UofMThesis_Class}[v20210123 The University of Manitoba Thesis Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -12,7 +12,7 @@
 \RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles.
 \RequirePackage{epigraph} % Enables epigraphs and loads `minipage` automatically.
 \RequirePackage{tocbibind} % Enables the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
-\RequirePackage[hypcap = true, format = plain, font = sf, labelfont = bf]{caption} % Sans serif text and boldface caption labels; `hypcap` is applied to make links to tables and figures point to the right location when `hyperref` is in use.
+\RequirePackage[hypcap = true, format = hang, font = sf, labelfont = bf]{caption} % Sets sans serif text and boldface caption labels with indented caption text; `hypcap` is applied to make links to tables and figures point to the right locations when `hyperref` is in use.
 \usepackage[framemethod = tikz]{mdframed}
 % Defines custom boxed/framed environments (`notice` and `highlight`). `mdframed` renews the `theorem` environment so it has to be loaded before `amsthm`; it loads `kvoptions`, `xparse`, `etoolbox`, `color` and `tikz` automatically.
 \RequirePackage{mathtools} % An add-on of `amsmath` loading `amsmath` automatically.
