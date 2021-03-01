@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[2021/01/25 The University of Manitoba Thesis/Dissertation Class]
+\ProvidesClass{Template/UofMThesis_Class}[2021/02/28 The University of Manitoba Thesis/Dissertation Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -10,10 +10,10 @@
 \RequirePackage[nodisplayskipstretch, doublespacing]{setspace}
 % Double-spaced for text but not for mathematical formulae.
 \RequirePackage{fancyhdr} % Fancy style headers.
-\RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles.
+\RequirePackage[Bjornstrup]{fncychap} % `Bjornstrup` heading styles for chapter titles.
 \RequirePackage{epigraph} % Enables epigraphs and loads `minipage` automatically.
 \RequirePackage{tocbibind}
-% Enables the table of contents, the list of tables, the list of figures and the bibliography to show in the bookmark.
+% Enables the table of contents (ToC), the list of tables (LoT), the list of figures (LoF) and the bibliography to show in the bookmark.
 \RequirePackage[format = hang, font = sf, labelfont = bf]{caption}
 % Sets sans serif text and boldface caption labels with indented caption text; the option `format = hang` sets up a hanging indention.
 \usepackage[framemethod = tikz]{mdframed}
@@ -26,7 +26,7 @@
 % `breaklinks = true` allows links to break over lines.
 % `pagebackref = true` activates back references inside the bibliography.
 % `hyperfootnotes = true` makes the footnote marks into hyperlinks to the footnote text.
-% With few exceptions, `hyperref` should **always** load last.
+% With few exceptions, `hyperref` should **always** be loaded last.
 \RequirePackage{tablefootnote}
 % Enables proper footnote displays for `minipage`, `tabular` and even `mdframed` with `\tablefootnote{}`.
 \RequirePackage[toc, page]{appendix} % Changes grouping for bookmarks of the appendix.
@@ -131,7 +131,9 @@
 	}
 }
 
-\newenvironment{highlight}[1][]
+
+% The asterisk version of `highlight` simply disallows label references.
+\newenvironment{highlight*}[1][]
 {
 	\medskip
 	\newcommand{\highlighttitle}{#1}
@@ -139,6 +141,18 @@
 }
 {
 	\end{mdframed}
+}
+
+% The normal version of `highlight` enables a counter for label references.
+\newcounter{highlights}
+\setcounter{highlights}{0}
+\newenvironment{highlight}[1][]
+{
+	\begin{highlight*}[#1]
+		\refstepcounter{highlights}
+}
+{
+	\end{highlight*}
 }
 
 \renewcommand{\epigraph}[2] % Makes epigraphs single-spaced.
