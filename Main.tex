@@ -1,9 +1,11 @@
+%!TEX program = pdflatex
+
 % Author: Yungchen Jen
 % Description: It is a LaTeX thesis/dissertation template for the University of Manitoba (U of M), complying with [Harvard GSAS requirements](https://guides.library.harvard.edu/overleaf/phd/).
 % N.B.: It is compiled successfully with pdfTeX 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) on Kubuntu 20.04.1 LTS and the latest version can be downloaded [here](https://github.com/ChosenOne2241/UofMThesis/).
 
 \documentclass[12pt, twoside]{Template/UofMThesis_Class}
-% Feel free to feed the options (font/paper/margin sizes etc.) since `Template/UofMThesis_Class` here is merely a superclass of `report`.
+% Feel free to feed options (font/paper/margin sizes etc.) since `Template/UofMThesis_Class` here is merely a superclass of `report`.
 % When `twoside` option is enabled, it is **normal** that the outer page margins will be twice as large as the inner margins. DON'T PANIC! (*The Hitchhiker's Guide to the Galaxy*, Douglas Adams)
 
 % Two packages below are used here only to generate examples, which are **optional**.
@@ -27,12 +29,16 @@
 	\include{Main_Matter/02-Frames}
 
 	% The back matter.
-	\backmatterpagestyle
-	\bibliography{Back_Matter/Bibliography}
+	\pagestyle{plain}
+	% Appendix.
 	\bookmarksetupnext{level = part} % `part` is `-1`.
 	\appendix
 	\begin{appendices}
 		\include{Back_Matter/Appendix_A}
 		\include{Back_Matter/Appendix_B}
 	\end{appendices}
+	% Bibliography.
+	\bookmarksetupnext{level = part}
+	\bibliographystyle{abbrv}
+	\bibliography{Back_Matter/Bibliography}
 \end{document}

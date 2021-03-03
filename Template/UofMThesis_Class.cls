@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[2021/02/28 The University of Manitoba Thesis/Dissertation Class]
+\ProvidesClass{Template/UofMThesis_Class}[2021/03/03 The University of Manitoba Thesis/Dissertation Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -357,12 +357,6 @@
 	\fancyhead[LO, RE]{\textit{\chaptername\ \thechapter: \leftmark}}
 	% Three lines above create the fancy style header for two-side documents.
 	\pagenumbering{arabic} % Page numbers for the main/back matter are arabic.
-}
-
-\newcommand{\backmatterpagestyle}
-{
-	\pagestyle{plain}
-	\bibliographystyle{abbrv}
 }
 
 \endinput % LaTeX will stop loading anything after this line.
