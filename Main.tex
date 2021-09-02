@@ -1,0 +1,31 @@
+%!TEX program = pdflatex
+
+% Author: Yungchen Jen
+% Description: It is a general-use LaTeX solution template for presentation/talk slides.
+% N.B.: It is compiled successfully with pdfTeX 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) on Kubuntu 20.04.3 LTS.
+
+\documentclass[hyperref = {pdftex, breaklinks = true}, aspectratio = 169]{beamer}
+% `beamer` loads `hyperref` automatically.
+% `breaklinks = true` allows links to break over lines.
+% `aspectratio = 169` sets aspect ratio to 16:9.
+
+\hypersetup{pdfpagemode = FullScreen} % Activates the presentation mode automatically.
+
+\usepackage{graphicx} % Inserts PNG/JPG images.
+
+\usetheme{ExecusharesRemastered}
+\usecolortheme{ExecusharesRemastered}
+
+\begin{document}
+	% The front matter.
+	\printfrontmatter
+
+	% The matter matter.
+	\input{Main_Matter/01-Elements}
+	\input{Main_Matter/02-Overlays}
+
+	% The back matter.
+	\printbackmatter
+	\appendix
+	\input{Back_Matter/Appendix}
+\end{document}

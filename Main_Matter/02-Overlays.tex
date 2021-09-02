@@ -1,0 +1,58 @@
+\section{Overlays}
+
+\subsection{Usages}
+
+\begin{frame}{\textbackslash pause}
+	The command \textbackslash pause makes the text following it to be shown only from the next slide on, which is a command using \textbackslash onslide internally.
+
+	An example:
+	\begin{itemize}
+		\pause
+		\item One
+		\pause
+		\item Two
+		\pause
+		\item Three
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\textbackslash uncover, \textbackslash visible \& \textbackslash only}
+	\begin{description}
+		\item[\textbackslash uncover] The text occupies space and is still typeset, but it is not shown or only shown as if transparent
+		\item[\textbackslash visible] It is almost the same as \textbackslash uncover, except that if the text is not shown, it is never shown transparently, but rather it is not shown at all
+		\item[\textbackslash only] The text is inserted only into the specified slides and for other slides, it is thrown away and occupies no space
+	\end{description}
+\end{frame}
+
+\subsection{Examples}
+
+\begin{frame}{Examples of \textbackslash uncover, \textbackslash visible \& \textbackslash only}
+	A labelling is a set of local labelling functions.
+
+	\begin{itemize}
+		\uncover<1->{\item The vertex-labelled graph \(G\)}
+		\uncover<2->{\item The local labelling function \alert{\(f_{v_3}\)}, for \(f_{v_3}(v_2) = 2\) and \(f_{v_3}(v_4) = 1\)}
+		\uncover<3->{\item The labelling \(\textbf{f} = \{\, f_{v_1}, f_{v_2}, \alert{f_{v_3}}, f_{v_3}, f_{v_4}, f_{v_5} \,\}\)}
+	\end{itemize}
+
+	\begin{figure}[ht]
+		\centering
+		\input{Figures/P_5.tikz}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Examples of \textbackslash uncover, \textbackslash visible \& \textbackslash only (Cont.)}
+	\begin{figure}[ht]
+		\centering
+		\only<1-3>
+		{
+			\input{Figures/Multiplicity_1.tikz}
+			\uncover<2-3>{\caption{\(s_{\textbf{f}} = 1\)}}
+		}
+		\only<4-6>
+		{
+			\input{Figures/Multiplicity_2.tikz}
+			\uncover<5-6>{\caption{\(s_{\textbf{f}} = 2\)}}
+		}
+	\end{figure}
+\end{frame}
