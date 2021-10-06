@@ -1,5 +1,7 @@
+%!TEX root = ../Main.tex
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Template/UofMThesis_Class}[2021/03/23 The University of Manitoba Thesis/Dissertation Class]
+\ProvidesClass{Template/UofMThesis_Class}[2021/10/06 The University of Manitoba Thesis/Dissertation Class]
 \LoadClassWithOptions{report}
 % The class file is a superclass of `report`.
 
@@ -179,7 +181,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Redefines `\cleardoublepage`.
-\def\cleardoublepage
+\renewcommand{\cleardoublepage}
 {
 	\clearpage\if@twoside\ifodd\c@page\else
 	\hbox{}
