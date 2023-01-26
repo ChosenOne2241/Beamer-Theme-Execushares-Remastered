@@ -1,0 +1,50 @@
+\begin{tikzpicture}
+	\visible<4-5>
+	{
+		\begin{scope}[every node/.style = {circle, draw}]
+			\node (v1) at (0, 0) {};
+			\node (v2) at (2, 0) {};
+			\node (v3) at (0, -2) {};
+			\node (v4) at (2, -2) {};
+			\node (v5) at (-2, 0) {};
+			\node (v6) at (2 * 2, 0) {};
+			\node (v7) at (-2, -2) {};
+			\node (v8) at (2 * 2, -2) {};
+		\end{scope}
+
+		\path (v1) edge (v2);
+		\path (v1) edge (v3);
+		\path (v1) edge (v5);
+		\path (v2) edge (v4);
+		\path (v2) edge (v6);
+		\path (v3) edge (v4);
+		\path (v3) edge (v7);
+		\path (v4) edge (v8);
+	}
+
+	\visible<5-6>
+	{
+		\path (v1) edge node [very near start, above] {\small 1} node [very near end, above] {\small 1} (v2);
+		\path (v1) edge node [very near start, right] {\small 3} node [very near end, right] {\small 2} (v3);
+		\path (v1) edge node [very near start, above] {\small 2} node [very near end, above] {\small 1} (v5);
+		\path (v2) edge node [very near start, left] {\small 3} node [very near end, left] {\small 2} (v4);
+		\path (v2) edge node [very near start, above] {\small 2} node [very near end, above] {\small 1} (v6);
+		\path (v3) edge node [very near start, below] {\small 3} node [very near end, below] {\small 3} (v4);
+		\path (v3) edge node [very near start, below] {\small 1} node [very near end, below] {\small 1} (v7);
+		\path (v4) edge node [very near start, below] {\small 1} node [very near end, below] {\small 1} (v8);
+	}
+
+	\visible<6>
+	{
+		\begin{scope}[every node/.style = {circle, draw}]
+			\node (v1) [fill = black] at (0, 0) {};
+			\node (v2) [fill = black] at (2, 0) {};
+			\node (v3) [fill = orange] at (0, -2) {};
+			\node (v4) [fill = orange] at (2, -2) {};
+			\node (v5) [fill = blue] at (-2, 0) {};
+			\node (v6) [fill = blue] at (2 * 2, 0) {};
+			\node (v7) [fill = red] at (-2, -2) {};
+			\node (v8) [fill = red] at (2 * 2, -2) {};
+		\end{scope}
+	}
+\end{tikzpicture}
